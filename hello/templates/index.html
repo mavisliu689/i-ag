@@ -47,22 +47,22 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">颱風</a>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="">颱風</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">寒害</a>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="">寒害</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">乾害</a>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="">乾害</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">傳染病</a>
+                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="">傳染病</a>
                                             <span class="badge">42</span>
                                         </td>
                                     </tr>
@@ -137,32 +137,32 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">土地購買</a>
+                                            <a href="">土地購買</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">種苗場</a> <span class="label label-info">5</span>
+                                            <a landId="table-land-2" class="task-item" onclick="sheet_table_display(this)">種苗場</a> <span class="label label-info"></span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">肥料農藥</a>
+                                            <a href="">肥料農藥</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">農機代耕</a>
+                                            <a href="">農機代耕</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">包裝物流</a>
+                                            <a href="">包裝物流</a>
                                         </td>
                                     </tr>      
                                     <tr>
                                         <td>
-                                            <a href="http://www.jquery2dotnet.com">農貸</a>
+                                            <a href="">農貸</a>
                                         </td>
                                     </tr>                                                                                                       
                                 </table>
@@ -172,20 +172,9 @@
                 </div>
             </div>
             <div class="col-sm-9 col-md-9">
-                <div class="well">  
-                    <table id="table" data-height="460">
-                        <thead>
-                            <tr>
-                                <th data-field="id">公司名稱</th>
-                                <th data-field="name">郵遞區號</th>
-                                <th data-field="county">縣市</th>
-                                <th data-field="region">行政區</th>
-                                <th data-field="address">地址</th>
-                                <th data-field="phone">電話</th>
-                                <th data-field="fax">傳真</th>                                                                                                                                
-                            </tr>
-                        </thead>
-                    </table>                                                                                                                                              
+                <div class="well">
+                    <!-- <div class=""></div> -->
+                    
                 </div>
             </div>
         </div>
@@ -218,22 +207,45 @@
         var task_attr = $(container).attr('taskId');
         var task_url = task_dict[task_attr];
         var task_text = task_context[task_attr];
-        console.log(task_attr,task_url)
         $(".well").html('<div class="task-video task-2 embed-responsive embed-responsive-16by9"> \
         <iframe width="640" height="360" src="'+ task_url +'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>\
         </div>' +                     '<h2>小技巧補充</h2><div>' +task_text+ '</div>')
     }
-    $.getJSON( "../static/cron_sheet.json", function(data) {
-            console.log( "success" );
+    function sheet_table_display(container){
+        console.log($(container))
+        // $("#myform_wrapper").show()
+        $(".well").html('\
+        <table id="myform" class="display sheet-table dataTable no-footer" width="100%"></table>')
+        $.getJSON( "../static/cron_sheet.json", function(data) {
         })
-            .done(function(data) {
-            console.log( "second success",data.data );
+        .done(function(data) {
+            $('#myform').DataTable( {
+                data: data.data,
+                columns: [
+                    { title: "公司名稱" },
+                    { title: "郵遞區號" },
+                    { title: "縣市" },
+                    { title: "行政區" },
+                    { title: "地址" },
+                    { title: "電話" },
+                    { title: "傳真" },
+                ]
+            });
         })
         .fail(function() {
             console.log( "error" );
         })
         .always(function() {
             console.log( "complete" );
-    });    
+        });     
+        $(".well").show();   
+    }
+
+    $(document).ready(function() {
+        // executes when HTML-Document is loaded and DOM is ready
+        //  $(".dataTables_wrapper").hide()
+        $(".well").hide();
+    });
+       
   </script>
 {% endblock %}
