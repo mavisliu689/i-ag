@@ -20,8 +20,8 @@
 </style>
 <div class="jumbotron text-center">
   <div class="container">
-    <a href="/" class="lang-logo">
-      <img src="{% static 'background.png'%}"><span>農創戰紀</span>
+    <a href="https://i-ag-f.herokuapp.com/" class="lang-logo">
+      <img src="{% static 'background.png'%}">
     </a>
     <!-- <h1>Getting Started with Python on Heroku</h1>
     <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
@@ -42,7 +42,7 @@
                                 </span>緊急任務</a>
                             </h4>
                         </div>
-                        <div id="collapseOne" class="panel-collapse collapse in">
+                        <div id="collapseOne" class="panel-collapse collapse">
                             <div class="panel-body">
                                 <table class="table">
                                     <tr>
@@ -77,7 +77,7 @@
                                 </span>一般任務</a>
                             </h4>
                         </div>
-                        <div id="collapseTwo" class="panel-collapse collapse">
+                        <div id="collapseTwo" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <table class="table table-task">
                                     <tr>
@@ -173,15 +173,19 @@
             </div>
             <div class="col-sm-9 col-md-9">
                 <div class="well">  
-                        <table id="table" data-height="460">
-                                <thead>
-                                    <tr>
-                                        <th data-field="id">Item ID</th>
-                                        <th data-field="name">Item Name</th>
-                                        <th data-field="price">Item Price</th>
-                                    </tr>
-                                </thead>
-                            </table>                                                                                                                                              
+                    <table id="table" data-height="460">
+                        <thead>
+                            <tr>
+                                <th data-field="id">公司名稱</th>
+                                <th data-field="name">郵遞區號</th>
+                                <th data-field="county">縣市</th>
+                                <th data-field="region">行政區</th>
+                                <th data-field="address">地址</th>
+                                <th data-field="phone">電話</th>
+                                <th data-field="fax">傳真</th>                                                                                                                                
+                            </tr>
+                        </thead>
+                    </table>                                                                                                                                              
                 </div>
             </div>
         </div>
