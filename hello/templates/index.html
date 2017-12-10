@@ -47,22 +47,22 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="">颱風</a>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a class="task-item">颱風</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="">寒害</a>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a class="task-item">寒害</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-file text-info"></span><a href="">乾害</a>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a class="task-item">乾害</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="">傳染病</a>
+                                            <span class="glyphicon glyphicon-comment text-success"></span><a class="task-item">傳染病</a>
                                             <span class="badge">42</span>
                                         </td>
                                     </tr>
@@ -137,7 +137,7 @@
                                 <table class="table">
                                     <tr>
                                         <td>
-                                            <a href="">土地購買</a>
+                                            <a class="task-item">土地購買</a>
                                         </td>
                                     </tr>
                                     <tr>
@@ -147,22 +147,22 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="">肥料農藥</a>
+                                            <a class="task-item">肥料農藥</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="">農機代耕</a>
+                                            <a class="task-item">農機代耕</a>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <a href="">包裝物流</a>
+                                            <a class="task-item">包裝物流</a>
                                         </td>
                                     </tr>      
                                     <tr>
                                         <td>
-                                            <a href="">農貸</a>
+                                            <a class="task-item">農貸</a>
                                         </td>
                                     </tr>                                                                                                       
                                 </table>
@@ -209,7 +209,7 @@
         var task_text = task_context[task_attr];
         $(".well").html('<div class="task-video task-2 embed-responsive embed-responsive-16by9"> \
         <iframe width="640" height="360" src="'+ task_url +'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>\
-        </div>' +                     '<h2>小技巧補充</h2><div>' +task_text+ '</div>')
+        </div>' + '<h2>小技巧補充</h2><div>' +task_text+ '</div>')
     }
     function sheet_table_display(container){
         console.log($(container))
