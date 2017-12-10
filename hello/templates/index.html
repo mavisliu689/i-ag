@@ -2,57 +2,234 @@
 {% load staticfiles %}
 
 {% block content %}
+<style type="text/css">
+  .left-container {
+    /* width: 50px; */
+  }
+  .left-container .btn-item {
+    margin-bottom: 20px;
+  }
+  .glyphicon { margin-right:10px; }
+  .panel-body { padding:0px; }
+  .panel-body table tr td { padding-left: 15px }
+  .panel-body .table {margin-bottom: 0px; }
 
+  .task-item {
+    cursor: pointer;
+  }
+</style>
 <div class="jumbotron text-center">
   <div class="container">
     <a href="/" class="lang-logo">
-      <img src="{% static 'lang-logo.png'%}">
+      <img src="{% static 'background.png'%}"><span>農創戰紀</span>
     </a>
-    <h1>Getting Started with Python on Heroku</h1>
+    <!-- <h1>Getting Started with Python on Heroku</h1>
     <p>This is a sample Python application deployed to Heroku. It's a reasonably simple app - but a good foundation for understanding how to get the most out of the Heroku platform.</p>
     <a type="button" class="btn btn-lg btn-default" href="https://devcenter.heroku.com/articles/getting-started-with-python"><span class="glyphicon glyphicon-flash"></span> Getting Started with Python</a>
-    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a>
+    <a type="button" class="btn btn-lg btn-primary" href="https://github.com/heroku/python-getting-started"><span class="glyphicon glyphicon-download"></span> Source on GitHub</a> -->
   </div>
 </div>
-<div class="container">
-  <div class="alert alert-info text-center" role="alert">
-    To deploy your own copy, and learn the fundamentals of the Heroku platform, head over to the <a href="https://devcenter.heroku.com/articles/getting-started-with-python" class="alert-link">Getting Started with Python on Heroku</a> tutorial.
-  </div>
-  <hr>
-  <div class="row">
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-info-sign"></span> How this sample app works</h3>
-      <ul>
-        <li>This app was deployed to Heroku, either using Git or by using <a href="https://github.com/heroku/python-getting-started">Heroku Button</a> on the repository.</li>
 
-        <li>When Heroku received the source code, it fetched all the dependencies in the <a href="https://github.com/heroku/python-getting-started/blob/master/requirements.txt">requirements.txt file</a>, creating a deployable slug.</li>
-        <li>The platform then spins up a dyno, a lightweight container that provides an isolated environment in which the slug can be mounted and executed.</li>
-        <li>You can scale your app, manage it, and deploy over <a href="https://addons.heroku.com/">150 add-on services</a>, from the Dashboard or CLI.</li>
-      </ul>
+<div class="left-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3 col-md-3">
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-pencil">
+                                </span>緊急任務</a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://www.jquery2dotnet.com">颱風</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-flash text-success"></span><a href="http://www.jquery2dotnet.com">寒害</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-file text-info"></span><a href="http://www.jquery2dotnet.com">乾害</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="glyphicon glyphicon-comment text-success"></span><a href="http://www.jquery2dotnet.com">傳染病</a>
+                                            <span class="badge">42</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-tasks">
+                                </span>一般任務</a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table table-task">
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-1" class="task-item" onclick="task_update(this)">翻土</a>
+        
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-2" class="task-item" onclick="task_update(this)">開溝</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-3" class="task-item" onclick="task_update(this)">育苗</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-4" class="task-item" onclick="task_update(this)">播種</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-5" class="task-item" onclick="task_update(this)">淹水</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-6" class="task-item" onclick="task_update(this)">除蟲</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-7" class="task-item" onclick="task_update(this)">施肥</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a taskId="table-task-8" class="task-item" onclick="task_update(this)">採收</a>
+                                        </td>
+                                    </tr>                                                                                                                                                
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-usd">
+                                </span>商城銀行</a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <table class="table">
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">土地購買</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">種苗場</a> <span class="label label-info">5</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">肥料農藥</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">農機代耕</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">包裝物流</a>
+                                        </td>
+                                    </tr>      
+                                    <tr>
+                                        <td>
+                                            <a href="http://www.jquery2dotnet.com">農貸</a>
+                                        </td>
+                                    </tr>                                                                                                       
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-md-9">
+                <div class="well">  
+                        <table id="table" data-height="460">
+                                <thead>
+                                    <tr>
+                                        <th data-field="id">Item ID</th>
+                                        <th data-field="name">Item Name</th>
+                                        <th data-field="price">Item Price</th>
+                                    </tr>
+                                </thead>
+                            </table>                                                                                                                                              
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-6">
-      <h3><span class="glyphicon glyphicon-link"></span> Next Steps</h3>
-      <ul>
-        <li>If you are following the <a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started</a> guide, then please head back to the tutorial and follow the next steps!</li>
-        <li>If you deployed this app by deploying the Heroku Button, then in a command line shell, run:</li>
-        <ul>
-          <li><code>git clone https://github.com/heroku/python-getting-started.git</code> - this will create a local copy of the source code for the app</li>
-          <li><code>cd python-getting-started</code> - change directory into the local source code repository</li>
-          <li><code>heroku git:remote -a &lt;your-app-name></code> - associate the Heroku app with the repository</li>
-          <li>You'll now be set up to run the app locally, or <a href="https://devcenter.heroku.com/articles/getting-started-with-python#push-local-changes">deploy changes</a> to Heroku</li>
-        </ul>
-      </ul>
-      <h3><span class="glyphicon glyphicon-link"></span> Helpful Links</h3>
-      <ul>
-        <li><a href="https://www.heroku.com/home">Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/">Heroku Dev Center</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/getting-started-with-python">Getting Started with Python on Heroku</a></li>
-        <li><a href="https://devcenter.heroku.com/articles/django-app-configuration">Configuring Django Apps for Heroku</a></li>
-      </ul>
-    </div>
-  </div> <!-- row -->
-   <div class="alert alert-info text-center" role="alert">
-    Please do work through the Getting Started guide, even if you do know how to build such an application.  The guide covers the basics of working with Heroku, and will familiarize you with all the concepts you need in order to build and deploy your own apps.
-  </div>
-</div>
+    
+  </div> 
+  <script>
+    // var cron_info = ;  
+    var task_dict = {
+      "table-task-1": "https://www.youtube.com/embed/7ZGW_T-UqZ0",
+      "table-task-2": "https://www.youtube.com/embed/uYDq8FoxH5U",
+      "table-task-3": "https://www.youtube.com/embed/xRPAijrC-ZU",
+      "table-task-4": "https://www.youtube.com/embed/cG8Tf37Igko",
+      "table-task-5": "https://www.youtube.com/embed/ubGoh0krjQQ",
+      "table-task-6": "https://www.youtube.com/embed/v=oyMQ_Pevrc4",
+      "table-task-7": "https://www.youtube.com/embed/OLgH-7QkEiI",
+      "table-task-8": "https://www.youtube.com/embed/Pp3PcGDGkMA"
+    };
+    var task_context = {
+      "table-task-1": "需翻土兩次，目的是將有機質打成細小狀態，方便快速分解釋放養分到農田",
+      "table-task-2": "1.溝深度約20公分，寬度30公分  2.兩溝間距離115公分 3.整平畦面與畦溝",
+      "table-task-3": "二次覆土後，以塑膠布覆蓋三天，以利催芽",
+      "table-task-4": "苗株種植位置為距離畦旁10公分，且植株間距 20-30公分",
+      "table-task-5": "一溝淹滿再換另一溝淹，避免水集中在出水口前頭 導致前端土壤過度濕潤，而水也無法抵達田區後方",
+      "table-task-7": "肥料應灑於兩植株中間，且距離植株約10公分",
+      "table-task-6": "將顆粒狀農藥均勻灑在植株附近 防止昆蟲入侵",
+      "table-task-8": "植株拔起後將根系留於土壤，下次種植翻土時一並混打入土中，當作有機質分解 增加肥力"        
+    }
+    function task_update(container){
+        var task_attr = $(container).attr('taskId');
+        var task_url = task_dict[task_attr];
+        var task_text = task_context[task_attr];
+        console.log(task_attr,task_url)
+        $(".well").html('<div class="task-video task-2 embed-responsive embed-responsive-16by9"> \
+        <iframe width="640" height="360" src="'+ task_url +'" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>\
+        </div>' +                     '<h2>小技巧補充</h2><div>' +task_text+ '</div>')
+    }
+    $.getJSON( "../static/cron_sheet.json", function(data) {
+            console.log( "success" );
+        })
+            .done(function(data) {
+            console.log( "second success",data.data );
+        })
+        .fail(function() {
+            console.log( "error" );
+        })
+        .always(function() {
+            console.log( "complete" );
+    });    
+  </script>
 {% endblock %}
